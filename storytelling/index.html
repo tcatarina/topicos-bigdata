@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Jornada da Datatopia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 A Jornada da Datatopia</h1>
+        <p>Bem-vindo ao painel da Datatopia! Aqui, contamos a história de nossa incrível equipe e seu desempenho inicial através dos dados.</p>
+
+        <hr>
+
+        <h2>👥 Nossa Equipe Fundadora</h2>
+        <p>Tudo começou com um time de 5 especialistas apaixonados por transformar dados em soluções. Conheça nossos pioneiros:</p>
+        <div class="team">
+            <div class="member">
+                <strong>Ana</strong><br>
+                <em>Data Science</em>
+            </div>
+            <div class="member">
+                <strong>Bruno</strong><br>
+                <em>Engenharia de Dados</em>
+            </div>
+            <div class="member">
+                <strong>Carlos</strong><br>
+                <em>Machine Learning</em>
+            </div>
+            <div class="member">
+                <strong>Diana</strong><br>
+                <em>Análise de Dados</em>
+            </div>
+            <div class="member">
+                <strong>Eduardo</strong><br>
+                <em>Business Intelligence</em>
+            </div>
+        </div>
+        <pre><code class="python">
+funcionarios = ["Ana", "Bruno", "Carlos", "Diana", "Eduardo"]
+
+especialidades = {
+    "Ana": "Data Science",
+    "Bruno": "Engenharia de Dados",
+    "Carlos": "Machine Learning",
+    "Diana": "Análise de Dados",
+    "Eduardo": "Business Intelligence"
+}
+
+# Loop para exibir cada funcionário
+for funcionario in funcionarios:
+    print(f"{funcionario} - {especialidades[funcionario]}")
+        </code></pre>
+
+        <hr>
+
+        <h2>📊 Status dos Projetos</h2>
+        <p>Acompanhe o andamento dos projetos de cada membro da equipe. Para facilitar a visualização, usamos um sistema de status com cores e emojis:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Projeto A</th>
+                    <th>Projeto B</th>
+                    <th>Projeto C</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ana</td>
+                    <td>🟡 Em Andamento</td>
+                    <td>🟢 Concluído</td>
+                    <td>🟢 Concluído</td>
+                </tr>
+                <tr>
+                    <td>Bruno</td>
+                    <td>🟢 Concluído</td>
+                    <td>🟡 Em Andamento</td>
+                    <td>🟡 Em Andamento</td>
+                </tr>
+                <tr>
+                    <td>Carlos</td>
+                    <td>🔴 Não Iniciado</td>
+                    <td>🟢 Concluído</td>
+                    <td>🟡 Em Andamento</td>
+                </tr>
+                <tr>
+                    <td>Diana</td>
+                    <td>🟡 Em Andamento</td>
+                    <td>🟢 Concluído</td>
+                    <td>🔴 Não Iniciado</td>
+                </tr>
+                <tr>
+                    <td>Eduardo</td>
+                    <td>🟢 Concluído</td>
+                    <td>🟡 Em Andamento</td>
+                    <td>🔴 Não Iniciado</td>
+                </tr>
+            </tbody>
+        </table>
+        <pre><code class="python">
+matriz_projetos = [
+    [1, 2, 2],  # Ana
+    [2, 1, 1],  # Bruno
+    [0, 2, 1],  # Carlos
+    [1, 2, 0],  # Diana
+    [2, 1, 0],  # Eduardo
+]
+
+status_map = {0: "🔴 Não Iniciado", 1: "🟡 Em Andamento", 2: "🟢 Concluído"}
+
+# Processamento dos dados (exemplo com pandas, como no original)
+df_projetos = pd.DataFrame(
+    matriz_projetos,
+    index=funcionarios,
+    columns=["Projeto A", "Projeto B", "Projeto C"]
+)
+df_status = df_projetos.replace(status_map)
+        </code></pre>
+
+        <hr>
+
+        <h2>⏰ Horas Trabalhadas na Semana</h2>
+        <p>O sucesso é fruto de dedicação. Veja a distribuição de horas trabalhadas pela equipe na última semana.</p>
+        <div class="chart-container" style="position: relative; height:40vh; width:100%">
+            <canvas id="horasChart"></canvas>
+        </div>
+        <pre><code class="python">
+horas_trabalhadas = [40, 35, 30, 45, 38]
+funcionarios = ["Ana", "Bruno", "Carlos", "Diana", "Eduardo"]
+
+# Criando um DataFrame para o gráfico
+df_horas = pd.DataFrame({
+    "Funcionário": funcionarios,
+    "Horas Trabalhadas": horas_trabalhadas
+}).set_index("Funcionário")
+        </code></pre>
+
+        <hr>
+
+        <h2>🏆 Resumo de Desempenho</h2>
+        <p>Para uma visão geral, aqui está um resumo consolidado combinando as informações de especialidade, horas e projetos concluídos por cada funcionário.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Funcionário</th>
+                    <th>Especialidade</th>
+                    <th>Horas Trabalhadas</th>
+                    <th>Projetos Concluídos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ana</td>
+                    <td>Data Science</td>
+                    <td>40</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Bruno</td>
+                    <td>Engenharia de Dados</td>
+                    <td>35</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Carlos</td>
+                    <td>Machine Learning</td>
+                    <td>30</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Diana</td>
+                    <td>Análise de Dados</td>
+                    <td>45</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Eduardo</td>
+                    <td>Business Intelligence</td>
+                    <td>38</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+        <pre><code class="python">
+# Calculando projetos concluídos com um loop (list comprehension)
+projetos_concluidos = [linha.count(2) for linha in matriz_projetos]
+
+dados_resumo = {
+    "Funcionário": funcionarios,
+    "Especialidade": [especialidades[nome] for nome in funcionarios],
+    "Horas Trabalhadas": horas_trabalhadas,
+    "Projetos Concluídos": projetos_concluidos
+}
+
+df_resumo = pd.DataFrame(dados_resumo)
+        </code></pre>
+
+        <div class="success">
+            A jornada da Datatopia está apenas começando! Este painel mostra o poder e o potencial da nossa equipe.
+        </div>
+    </div>
+    <script src="chart.js"></script>
+</body>
+</html>
